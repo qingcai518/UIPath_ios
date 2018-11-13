@@ -21,7 +21,6 @@ class SingleSelectionCell: UICollectionViewCell {
     lazy var option3Lbl = UILabel()
     
     lazy var resultIconView = UIImageView()
-    lazy var resultLbl = UILabel()
     lazy var answerLbl = UILabel()
     
     var btns = [UIButton]()
@@ -37,7 +36,6 @@ class SingleSelectionCell: UICollectionViewCell {
         option3Lbl.text = nil
         
         resultIconView.image = nil
-        resultLbl.text = nil
         answerLbl.text = nil
         
         disposeBag = DisposeBag()
@@ -95,11 +93,6 @@ class SingleSelectionCell: UICollectionViewCell {
         resultIconView.isHidden = true
         self.contentView.addSubview(resultIconView)
         
-        resultLbl.textAlignment = .left
-        resultLbl.font = UIFont.boldSystemFont(ofSize: 16)
-        resultLbl.isHidden = true
-        self.contentView.addSubview(resultLbl)
-        
         answerLbl.textColor = UIColor.red
         answerLbl.numberOfLines = 0
         answerLbl.font = UIFont.systemFont(ofSize: 16)
@@ -149,19 +142,12 @@ class SingleSelectionCell: UICollectionViewCell {
         
         resultIconView.snp.makeConstraints { make in
             make.top.equalTo(option3Lbl.snp.bottom).offset(24)
-            make.left.equalToSuperview().inset(24)
+            make.centerX.equalToSuperview()
             make.height.width.equalTo(44)
         }
         
-        resultLbl.snp.makeConstraints { make in
-            make.top.equalTo(option3Lbl.snp.bottom).offset(24)
-            make.left.equalTo(resultIconView.snp.right).offset(24)
-            make.right.equalToSuperview().inset(24)
-            make.height.equalTo(44)
-        }
-        
         answerLbl.snp.makeConstraints { make in
-            make.top.equalTo(resultLbl.snp.bottom).offset(24)
+            make.top.equalTo(resultIconView.snp.bottom).offset(24)
             make.left.right.equalToSuperview().inset(24)
         }
         
@@ -177,31 +163,27 @@ class SingleSelectionCell: UICollectionViewCell {
         
         // bind.
         data.selection.asObservable().bind { [weak self] values in
+            guard let `self` = self else {return}
+            
             guard let value = values.first else {
-                self?.check1Btn.setImage(radioUncheckIcon, for: .normal)
-                self?.check2Btn.setImage(radioUncheckIcon, for: .normal)
-                self?.check3Btn.setImage(radioUncheckIcon, for: .normal)
+                let _ = self.btns.map{$0.setImage(radioUncheckIcon, for: .normal)}
+                self.answerLbl.isHidden = true
                 return
             }
-            self?.check1Btn.setImage(value == 0 ? radioCheckIcon : radioUncheckIcon, for: .normal)
-            self?.check2Btn.setImage(value == 1 ? radioCheckIcon : radioUncheckIcon, for: .normal)
-            self?.check3Btn.setImage(value == 2 ? radioCheckIcon : radioUncheckIcon, for: .normal)
             
-            self?.resultIconView.isHidden = false
-            self?.resultLbl.isHidden = false
+            for i in 0..<self.btns.count {
+                self.btns[i].setImage(value == i ? radioCheckIcon : radioUncheckIcon, for: .normal)
+            }
             
+            self.resultIconView.isHidden = false
             if "\(value)" == data.answer {
-                self?.answerLbl.isHidden = true
                 // 回答正确.
-                self?.resultIconView.image = correctIcon
-                self?.resultLbl.text = "正解！"
-                self?.resultLbl.textColor = UIColor.green
+                self.answerLbl.isHidden = true
+                self.resultIconView.image = correctIcon
             } else {
-                self?.answerLbl.isHidden = false
                 // 回答错误.
-                self?.resultIconView.image = wrongIcon
-                self?.resultLbl.text = "不正解！"
-                self?.resultLbl.textColor = UIColor.red
+                self.answerLbl.isHidden = false
+                self.resultIconView.image = wrongIcon
             }
         }.disposed(by: disposeBag)
         

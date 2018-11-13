@@ -22,7 +22,7 @@ class MultipleSelectionCell: UICollectionViewCell {
     
     lazy var resultBtn = UIButton()
     lazy var resultIconView = UIImageView()
-    lazy var resultLbl = UILabel()
+    lazy var answerLbl = UILabel()
     
     var disposeBag = DisposeBag()
     
@@ -36,7 +36,7 @@ class MultipleSelectionCell: UICollectionViewCell {
         option2Lbl.text = nil
         option3Lbl.text = nil
         resultIconView.image = nil
-        resultLbl.text = nil
+        answerLbl.text = nil
         
         disposeBag = DisposeBag()
     }
@@ -92,7 +92,7 @@ class MultipleSelectionCell: UICollectionViewCell {
         resultBtn.setBackgroundImage(UIImage.from(color: UIColor.lightGray), for: .highlighted)
         resultBtn.layer.cornerRadius = 12
         resultBtn.clipsToBounds = true
-        resultBtn.setTitle("回答を見る", for: .normal)
+        resultBtn.setTitle("確認", for: .normal)
         self.contentView.addSubview(resultBtn)
         
         resultIconView.contentMode = .scaleAspectFit
@@ -100,10 +100,12 @@ class MultipleSelectionCell: UICollectionViewCell {
         resultIconView.isHidden = true
         self.contentView.addSubview(resultIconView)
         
-        resultLbl.font = UIFont.systemFont(ofSize: 16)
-        resultLbl.textAlignment = .left
-        resultLbl.numberOfLines = 0
-        self.contentView.addSubview(resultLbl)
+        answerLbl.textColor = UIColor.red
+        answerLbl.font = UIFont.systemFont(ofSize: 16)
+        answerLbl.textAlignment = .left
+        answerLbl.numberOfLines = 0
+        answerLbl.isHidden = true
+        self.contentView.addSubview(answerLbl)
         
         questionLbl.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(44)
@@ -153,16 +155,14 @@ class MultipleSelectionCell: UICollectionViewCell {
         }
         
         resultIconView.snp.makeConstraints { make in
-            make.top.equalTo(option3Lbl.snp.bottom).offset(24)
-            make.left.equalToSuperview().inset(24)
+            make.top.equalTo(resultBtn.snp.bottom).offset(24)
+            make.centerX.equalToSuperview()
             make.height.width.equalTo(44)
         }
         
-        resultLbl.snp.makeConstraints {make in
-            make.top.equalTo(option3Lbl.snp.bottom).offset(24)
-            make.left.equalTo(resultIconView.snp.right).offset(24)
-            make.right.equalToSuperview().inset(24)
-            make.height.equalTo(44)
+        answerLbl.snp.makeConstraints { make in
+            make.top.equalTo(resultIconView.snp.bottom).offset(24)
+            make.left.right.equalToSuperview().inset(24)
         }
         
         btns = [check1Btn, check2Btn, check3Btn]
@@ -178,6 +178,11 @@ class MultipleSelectionCell: UICollectionViewCell {
         // bind.
         data.selection.asObservable().bind { [weak self] values in
             guard let `self` = self else {return}
+            
+            if values.count == 0 {
+                self.answerLbl.isHidden = true
+            }
+            
             // 首先清除所有的选择.
             let _ = self.btns.map{$0.setImage(uncheckIcon, for: .normal)}
             
@@ -203,8 +208,6 @@ class MultipleSelectionCell: UICollectionViewCell {
         }
         
         resultBtn.rx.tap.bind { [weak self] in
-            self?.resultBtn.isHidden = true
-            self?.resultLbl.isHidden = false
             self?.resultIconView.isHidden = false
             
             // 結果を表示する.
@@ -215,16 +218,28 @@ class MultipleSelectionCell: UICollectionViewCell {
             
             if result == data.answer {
                 // 回答正确.
-                self?.resultLbl.textColor = UIColor.green
-                self?.resultLbl.text = "正解！"
+                self?.answerLbl.isHidden = true
                 self?.resultIconView.image = correctIcon
             } else {
                 // 回答错误.
-                self?.resultLbl.textColor = UIColor.red
-                self?.resultLbl.text = "不正解！"
+                self?.answerLbl.isHidden = false
                 self?.resultIconView.image = wrongIcon
             }
         }.disposed(by: disposeBag)
+        
+        // 设定正确回答.
+        let answers = data.answer.split(separator: ",")
+        var result = "正解は："
+        for answer in answers {
+            guard let value = Int(answer) else {continue}
+            
+            if value >= optionLbls.count {
+                continue
+            }
+            guard let text = optionLbls[value].text else {continue}
+            result = result + "\n\(text)"
+        }
+        answerLbl.text = result
     }
     
     private func doSelect(element : Int, data : ExerciseData) {
