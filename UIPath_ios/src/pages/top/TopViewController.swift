@@ -61,15 +61,15 @@ class TopViewController: ViewController {
 extension TopViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let next = ExerciseController()
         if indexPath.section == 0 {
+            let next = ExerciseController()
             let data = viewModel.chapters[indexPath.row]
             next.chapter = data
+            self.navigationController?.pushViewController(next, animated: true)
         } else {
-            // TODO.
-            // 随机取题库中的10道题.
+            let next = TestController()
+            self.navigationController?.pushViewController(next, animated: true)
         }
-        self.navigationController?.pushViewController(next, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
