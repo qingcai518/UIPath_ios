@@ -13,4 +13,4 @@ let v1 = domain + "/v1"
 
 let chapterAPI = v1 + "/chapter/"
 let exerciseAPI = v1 + "/exercise/"
-
+let testAPI = v1 + "/test/"

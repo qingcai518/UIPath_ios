@@ -39,6 +39,15 @@
 		4B523E6621998C2900E6B1BD /* MultipleSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B523E6521998C2900E6B1BD /* MultipleSelectionCell.swift */; };
 		4B523E6821998F7100E6B1BD /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B523E6721998F7100E6B1BD /* Icons.swift */; };
 		4B523E6A219AB2FE00E6B1BD /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B523E69219AB2FE00E6B1BD /* UIImage.swift */; };
+		4B523E6D219AC0BA00E6B1BD /* TestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B523E6C219AC0BA00E6B1BD /* TestController.swift */; };
+		4B523E76219AC1F100E6B1BD /* LinearCardAttributesAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B523E6F219AC1F100E6B1BD /* LinearCardAttributesAnimator.swift */; };
+		4B523E77219AC1F100E6B1BD /* PageAttributesAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B523E70219AC1F100E6B1BD /* PageAttributesAnimator.swift */; };
+		4B523E78219AC1F100E6B1BD /* ParallaxAttributesAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B523E71219AC1F100E6B1BD /* ParallaxAttributesAnimator.swift */; };
+		4B523E79219AC1F100E6B1BD /* CrossFadeAttributesAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B523E72219AC1F100E6B1BD /* CrossFadeAttributesAnimator.swift */; };
+		4B523E7A219AC1F100E6B1BD /* ZoomInOutAttributesAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B523E73219AC1F100E6B1BD /* ZoomInOutAttributesAnimator.swift */; };
+		4B523E7B219AC1F100E6B1BD /* RotateInOutAttributesAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B523E74219AC1F100E6B1BD /* RotateInOutAttributesAnimator.swift */; };
+		4B523E7C219AC1F100E6B1BD /* SnapInAttributesAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B523E75219AC1F100E6B1BD /* SnapInAttributesAnimator.swift */; };
+		4B523E7E219AC2A000E6B1BD /* TestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B523E7D219AC2A000E6B1BD /* TestViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +106,15 @@
 		4B523E6521998C2900E6B1BD /* MultipleSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleSelectionCell.swift; sourceTree = "<group>"; };
 		4B523E6721998F7100E6B1BD /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		4B523E69219AB2FE00E6B1BD /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		4B523E6C219AC0BA00E6B1BD /* TestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestController.swift; sourceTree = "<group>"; };
+		4B523E6F219AC1F100E6B1BD /* LinearCardAttributesAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinearCardAttributesAnimator.swift; sourceTree = "<group>"; };
+		4B523E70219AC1F100E6B1BD /* PageAttributesAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageAttributesAnimator.swift; sourceTree = "<group>"; };
+		4B523E71219AC1F100E6B1BD /* ParallaxAttributesAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParallaxAttributesAnimator.swift; sourceTree = "<group>"; };
+		4B523E72219AC1F100E6B1BD /* CrossFadeAttributesAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrossFadeAttributesAnimator.swift; sourceTree = "<group>"; };
+		4B523E73219AC1F100E6B1BD /* ZoomInOutAttributesAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomInOutAttributesAnimator.swift; sourceTree = "<group>"; };
+		4B523E74219AC1F100E6B1BD /* RotateInOutAttributesAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotateInOutAttributesAnimator.swift; sourceTree = "<group>"; };
+		4B523E75219AC1F100E6B1BD /* SnapInAttributesAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapInAttributesAnimator.swift; sourceTree = "<group>"; };
+		4B523E7D219AC2A000E6B1BD /* TestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,6 +259,7 @@
 		4B523E3921994AFD00E6B1BD /* pages */ = {
 			isa = PBXGroup;
 			children = (
+				4B523E6B219AC09C00E6B1BD /* test */,
 				4B523E4D21997ED700E6B1BD /* exercise */,
 				4B523E2321991D9A00E6B1BD /* top */,
 			);
@@ -322,6 +341,13 @@
 		4B523E572199833000E6B1BD /* animator */ = {
 			isa = PBXGroup;
 			children = (
+				4B523E72219AC1F100E6B1BD /* CrossFadeAttributesAnimator.swift */,
+				4B523E6F219AC1F100E6B1BD /* LinearCardAttributesAnimator.swift */,
+				4B523E70219AC1F100E6B1BD /* PageAttributesAnimator.swift */,
+				4B523E71219AC1F100E6B1BD /* ParallaxAttributesAnimator.swift */,
+				4B523E74219AC1F100E6B1BD /* RotateInOutAttributesAnimator.swift */,
+				4B523E75219AC1F100E6B1BD /* SnapInAttributesAnimator.swift */,
+				4B523E73219AC1F100E6B1BD /* ZoomInOutAttributesAnimator.swift */,
 				4B523E582199835200E6B1BD /* CubeAttributesAnimator.swift */,
 			);
 			path = animator;
@@ -334,6 +360,15 @@
 				4B523E69219AB2FE00E6B1BD /* UIImage.swift */,
 			);
 			path = extension;
+			sourceTree = "<group>";
+		};
+		4B523E6B219AC09C00E6B1BD /* test */ = {
+			isa = PBXGroup;
+			children = (
+				4B523E6C219AC0BA00E6B1BD /* TestController.swift */,
+				4B523E7D219AC2A000E6B1BD /* TestViewModel.swift */,
+			);
+			path = test;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -499,18 +534,27 @@
 				4B523E6A219AB2FE00E6B1BD /* UIImage.swift in Sources */,
 				4B523E4A21996E9800E6B1BD /* ChapterCell.swift in Sources */,
 				4B523E3B21995D7A00E6B1BD /* TopViewModel.swift in Sources */,
+				4B523E7C219AC1F100E6B1BD /* SnapInAttributesAnimator.swift in Sources */,
+				4B523E78219AC1F100E6B1BD /* ParallaxAttributesAnimator.swift in Sources */,
 				4B523E6421998C0700E6B1BD /* SingleSelectionCell.swift in Sources */,
 				4B523E2621991DB600E6B1BD /* ViewController.swift in Sources */,
+				4B523E6D219AC0BA00E6B1BD /* TestController.swift in Sources */,
 				4B523DF621991BC800E6B1BD /* TopViewController.swift in Sources */,
+				4B523E76219AC1F100E6B1BD /* LinearCardAttributesAnimator.swift in Sources */,
+				4B523E7E219AC2A000E6B1BD /* TestViewModel.swift in Sources */,
 				4B523E442199676400E6B1BD /* AppConst.swift in Sources */,
+				4B523E79219AC1F100E6B1BD /* CrossFadeAttributesAnimator.swift in Sources */,
+				4B523E7A219AC1F100E6B1BD /* ZoomInOutAttributesAnimator.swift in Sources */,
 				4B523E5B2199837300E6B1BD /* LayoutAttributesAnimator.swift in Sources */,
 				4B523E5121997F7E00E6B1BD /* ExerciseViewModel.swift in Sources */,
 				4B523E5D2199838800E6B1BD /* AnimatedCollectionViewLayout.swift in Sources */,
+				4B523E77219AC1F100E6B1BD /* PageAttributesAnimator.swift in Sources */,
 				4B523E4C21996EE600E6B1BD /* TableViewCell.swift in Sources */,
 				4B523DF421991BC800E6B1BD /* AppDelegate.swift in Sources */,
 				4B523E592199835200E6B1BD /* CubeAttributesAnimator.swift in Sources */,
 				4B523E60219983B400E6B1BD /* UIView.swift in Sources */,
 				4B523E6621998C2900E6B1BD /* MultipleSelectionCell.swift in Sources */,
+				4B523E7B219AC1F100E6B1BD /* RotateInOutAttributesAnimator.swift in Sources */,
 				4B523E4021995DE900E6B1BD /* ExerciseData.swift in Sources */,
 				4B523E3E21995DA000E6B1BD /* ChapterData.swift in Sources */,
 				4B523E6821998F7100E6B1BD /* Icons.swift in Sources */,
