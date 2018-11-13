@@ -12,13 +12,18 @@ import RxCocoa
 
 class MultipleSelectionCell: UICollectionViewCell {
     static let id = "MultipleSelectionCell"
-    let questionLbl = UILabel()
-    let check1Btn = UIButton()
-    let check2Btn = UIButton()
-    let check3Btn = UIButton()
-    let option1Lbl = UILabel()
-    let option2Lbl = UILabel()
-    let option3Lbl = UILabel()
+    lazy var questionLbl = UILabel()
+    lazy var check1Btn = UIButton()
+    lazy var check2Btn = UIButton()
+    lazy var check3Btn = UIButton()
+    lazy var option1Lbl = UILabel()
+    lazy var option2Lbl = UILabel()
+    lazy var option3Lbl = UILabel()
+    
+    lazy var resultBtn = UIButton()
+    lazy var resultIconView = UIImageView()
+    lazy var resultLbl = UILabel()
+    
     var disposeBag = DisposeBag()
     
     lazy var btns = [UIButton]()
@@ -30,6 +35,8 @@ class MultipleSelectionCell: UICollectionViewCell {
         option1Lbl.text = nil
         option2Lbl.text = nil
         option3Lbl.text = nil
+        resultIconView.image = nil
+        resultLbl.text = nil
         
         disposeBag = DisposeBag()
     }
@@ -81,6 +88,23 @@ class MultipleSelectionCell: UICollectionViewCell {
         option3Lbl.numberOfLines = 0
         self.contentView.addSubview(option3Lbl)
         
+        resultBtn.setBackgroundImage(UIImage.from(color: UIColor.orange), for: .normal)
+        resultBtn.setBackgroundImage(UIImage.from(color: UIColor.lightGray), for: .highlighted)
+        resultBtn.layer.cornerRadius = 12
+        resultBtn.clipsToBounds = true
+        resultBtn.setTitle("回答を見る", for: .normal)
+        self.contentView.addSubview(resultBtn)
+        
+        resultIconView.contentMode = .scaleAspectFit
+        resultIconView.clipsToBounds = true
+        resultIconView.isHidden = true
+        self.contentView.addSubview(resultIconView)
+        
+        resultLbl.font = UIFont.systemFont(ofSize: 16)
+        resultLbl.textAlignment = .left
+        resultLbl.numberOfLines = 0
+        self.contentView.addSubview(resultLbl)
+        
         questionLbl.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(44)
             make.left.right.equalToSuperview().inset(24)
@@ -122,6 +146,25 @@ class MultipleSelectionCell: UICollectionViewCell {
             make.right.equalToSuperview().inset(24)
         }
         
+        resultBtn.snp.makeConstraints { make in
+            make.top.equalTo(option3Lbl.snp.bottom).offset(24)
+            make.left.right.equalToSuperview().inset(24)
+            make.height.equalTo(50)
+        }
+        
+        resultIconView.snp.makeConstraints { make in
+            make.top.equalTo(option3Lbl.snp.bottom).offset(24)
+            make.left.equalToSuperview().inset(24)
+            make.height.width.equalTo(44)
+        }
+        
+        resultLbl.snp.makeConstraints {make in
+            make.top.equalTo(option3Lbl.snp.bottom).offset(24)
+            make.left.equalTo(resultIconView.snp.right).offset(24)
+            make.right.equalToSuperview().inset(24)
+            make.height.equalTo(44)
+        }
+        
         btns = [check1Btn, check2Btn, check3Btn]
         optionLbls = [option1Lbl, option2Lbl, option3Lbl]
     }
@@ -158,6 +201,30 @@ class MultipleSelectionCell: UICollectionViewCell {
             optionLbls[i].isUserInteractionEnabled = true
             optionLbls[i].addGestureRecognizer(recognizer)
         }
+        
+        resultBtn.rx.tap.bind { [weak self] in
+            self?.resultBtn.isHidden = true
+            self?.resultLbl.isHidden = false
+            self?.resultIconView.isHidden = false
+            
+            // 結果を表示する.
+            let values = data.selection.value
+            let valueArray = values.map{"\($0)"}
+            
+            let result = valueArray.joined(separator: ",")
+            
+            if result == data.answer {
+                // 回答正确.
+                self?.resultLbl.textColor = UIColor.green
+                self?.resultLbl.text = "正解！"
+                self?.resultIconView.image = correctIcon
+            } else {
+                // 回答错误.
+                self?.resultLbl.textColor = UIColor.red
+                self?.resultLbl.text = "不正解！"
+                self?.resultIconView.image = wrongIcon
+            }
+        }.disposed(by: disposeBag)
     }
     
     private func doSelect(element : Int, data : ExerciseData) {

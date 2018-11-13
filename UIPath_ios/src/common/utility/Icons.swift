@@ -13,3 +13,6 @@ let radioCheckIcon = UIImage(named: "radio_check")!
 let radioUncheckIcon = UIImage(named: "radio_uncheck")!
 let checkIcon = UIImage(named: "check")!
 let uncheckIcon = UIImage(named: "uncheck")!
+
+let correctIcon = UIImage(named: "correct")!
+let wrongIcon = UIImage(named: "wrong")!
