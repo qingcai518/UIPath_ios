@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class TestController: ViewController {
     var collectionView : UICollectionView!
@@ -16,6 +17,19 @@ class TestController: ViewController {
         super.viewDidLoad()
         
         setSubviews()
+        getData()
+    }
+    
+    private func getData() {
+        SVProgressHUD.show()
+        viewModel.getTest(onSucces: {
+            SVProgressHUD.dismiss()
+        }) {
+            
+            in
+            SVProgressHUD.dismiss()
+            SVProgressHUD.showError(withStatus: msg)
+        }
     }
     
     private func setSubviews() {
