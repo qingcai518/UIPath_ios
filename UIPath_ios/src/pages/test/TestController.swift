@@ -41,6 +41,48 @@ class TestController: ViewController {
         collectionView.register(MultipleSelectionCell.self, forCellWithReuseIdentifier: MultipleSelectionCell.id)
         collectionView.register(SingleSelectionCell.self, forCellWithReuseIdentifier: SingleSelectionCell.id)
         self.view.addSubview(collectionView)
+        
+        let contentLbl = UILabel()
+        contentLbl.textColor = UIColor.red
+        contentLbl.font = UIFont.systemFont(ofSize: 15)
+        self.view.addSubview(contentLbl)
+        
+        let testLbl = UILabel()
+        testLbl.textColor = UIColor.red
+        testLbl.font = UIFont.systemFont(ofSize: 20)
+        self.view.addSubview(testLbl)
+        
+        let contentLbl = UILabel()
+        contentLbl.textColor = UIColor.red
+        contentLbl.font = UIFont.systemFont(ofSize: 24)
+        
+        let contentLbl = UILabel()
+        contentLbl.font = UIFont.systemFont(ofSize: 20)
+        contentLbl.textColor = UIColor.red
+        
+        let testLbl = UILabel()
+        testLbl.font = UIFont.systemFont(ofSize: 29)
+        testLbl.textColor = UIColor.red
+        self.view.addSubview(testLbl)
+        
+        let contentLbl = UILabel()
+        contentLbl.font = UIFont.systemFont(ofSize: 24)
+        contentLbl.textColor = UIColor.red
+        self.view.addSubview(contentLbl)
+        
+        let coantentLbl = UILabel()
+        contentLbl.textColor = UIColor.red
+        contentLbl.font = UIFont.systemFont(ofSize: 120)
+        
+        let coantentLbl = UILabel()
+        contentLbl.textColor = UIColor.red
+        contentLbl.font = UIFont.systemFont(ofSize: 20)
+        
+        let conttentlBl = UILabel()
+        contentLbl.textColor = UIColor.red
+        
+        
+        
     }
 }
 
