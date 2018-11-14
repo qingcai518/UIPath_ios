@@ -107,7 +107,7 @@
 		4B523E6521998C2900E6B1BD /* MultipleSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleSelectionCell.swift; sourceTree = "<group>"; };
 		4B523E6721998F7100E6B1BD /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		4B523E69219AB2FE00E6B1BD /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
-		4B523E6C219AC0BA00E6B1BD /* TestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestController.swift; sourceTree = "<group>"; };
+		4B523E6C219AC0BA00E6B1BD /* TestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestController.swift; sourceTree = "<group>"; usesTabs = 0; };
 		4B523E6F219AC1F100E6B1BD /* LinearCardAttributesAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinearCardAttributesAnimator.swift; sourceTree = "<group>"; };
 		4B523E70219AC1F100E6B1BD /* PageAttributesAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageAttributesAnimator.swift; sourceTree = "<group>"; };
 		4B523E71219AC1F100E6B1BD /* ParallaxAttributesAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParallaxAttributesAnimator.swift; sourceTree = "<group>"; };

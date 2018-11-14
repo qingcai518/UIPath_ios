@@ -64,7 +64,7 @@ class TestController: ViewController {
         
         // set collectionView.
         let layout = AnimatedCollectionViewLayout()
-        layout.animator = CrossFadeAttributesAnimator()
+        layout.animator = LinearCardAttributesAnimator()
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
