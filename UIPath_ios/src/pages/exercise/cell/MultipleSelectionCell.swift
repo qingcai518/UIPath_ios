@@ -77,6 +77,7 @@ class MultipleSelectionCell: MultipleCell {
     }
     
     override func configure(with data: ExerciseData) {
+        super.configure(with: data)
         // bind.
         data.selection.asObservable().bind { [weak self] values in
             if values.count == 0 {
