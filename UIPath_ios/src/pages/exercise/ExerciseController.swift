@@ -44,8 +44,8 @@ class ExerciseController: ViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        let id = SingleSelectionCell.id
-        print("Single ID ===== \(id)")
+        print("multiple id ==== \(MultipleSelectionCell.id)")
+        print("single id === \(SingleSelectionCell.id)")
         
         collectionView.register(SingleSelectionCell.self, forCellWithReuseIdentifier: SingleSelectionCell.id)
         collectionView.register(MultipleSelectionCell.self, forCellWithReuseIdentifier: MultipleSelectionCell.id)

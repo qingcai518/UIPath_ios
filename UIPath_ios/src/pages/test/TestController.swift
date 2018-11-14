@@ -75,8 +75,8 @@ class TestController: ViewController {
         collectionView.isPagingEnabled = true
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(MultipleSelectionCell.self, forCellWithReuseIdentifier: MultipleSelectionCell.id)
-        collectionView.register(SingleSelectionCell.self, forCellWithReuseIdentifier: SingleSelectionCell.id)
+        collectionView.register(MultipleCell.self, forCellWithReuseIdentifier: MultipleCell.id)
+        collectionView.register(SingleCell.self, forCellWithReuseIdentifier: SingleCell.id)
         self.view.addSubview(collectionView)
         
         closeBtn.rx.tap.bind { [weak self] in
@@ -100,12 +100,13 @@ extension TestController : UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let data = viewModel.tests[indexPath.row]
+        
         if data.type == 0 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SingleSelectionCell.id, for: indexPath) as! SingleSelectionCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SingleCell.id, for: indexPath) as! SingleCell
             cell.configure(with: data)
             return cell
         } else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MultipleSelectionCell.id, for: indexPath) as! MultipleSelectionCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MultipleCell.id, for: indexPath) as! MultipleCell
             cell.configure(with: data)
             return cell
         }
