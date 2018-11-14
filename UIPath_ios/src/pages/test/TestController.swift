@@ -64,7 +64,7 @@ class TestController: ViewController {
         
         // set collectionView.
         let layout = AnimatedCollectionViewLayout()
-        layout.animator = ParallaxAttributesAnimator()
+        layout.animator = CrossFadeAttributesAnimator()
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
