@@ -15,9 +15,11 @@ class SingleCell: UICollectionViewCell {
     lazy var check1Btn = UIButton()
     lazy var check2Btn = UIButton()
     lazy var check3Btn = UIButton()
+    lazy var check4Btn = UIButton()
     lazy var option1Lbl = UILabel()
     lazy var option2Lbl = UILabel()
     lazy var option3Lbl = UILabel()
+    lazy var option4Lbl = UILabel()
     
     var btns = [UIButton]()
     var optionLbls = [UILabel]()
@@ -27,16 +29,14 @@ class SingleCell: UICollectionViewCell {
     class var id : String {
         return "SingleCell"
     }
-//    class func getId() -> String {
-//        return "SingleCell"
-//    }
-    
+
     override func prepareForReuse() {
         super.prepareForReuse()
         questionLbl.text = nil
         option1Lbl.text = nil
         option2Lbl.text = nil
         option3Lbl.text = nil
+        option4Lbl.text = nil
         
         disposeBag = DisposeBag()
     }
@@ -88,6 +88,14 @@ class SingleCell: UICollectionViewCell {
         option3Lbl.numberOfLines = 0
         self.contentView.addSubview(option3Lbl)
         
+        check4Btn.setImage(radioUncheckIcon, for: .normal)
+        self.contentView.addSubview(check4Btn)
+        
+        option4Lbl.textColor = UIColor.black
+        option4Lbl.textAlignment = .left
+        option4Lbl.font = UIFont.systemFont(ofSize: 16)
+        self.contentView.addSubview(option4Lbl)
+        
         questionLbl.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(44)
             make.left.right.equalToSuperview().inset(24)
@@ -129,8 +137,20 @@ class SingleCell: UICollectionViewCell {
             make.right.equalToSuperview().inset(24)
         }
         
-        btns = [check1Btn, check2Btn, check3Btn]
-        optionLbls = [option1Lbl, option2Lbl, option3Lbl]
+        check4Btn.snp.makeConstraints { make in
+            make.top.equalTo(option3Lbl.snp.bottom).offset(24)
+            make.left.equalToSuperview().inset(24)
+            make.height.width.equalTo(24)
+        }
+        
+        option4Lbl.snp.makeConstraints { make in
+            make.top.equalTo(option3Lbl.snp.bottom).offset(24)
+            make.left.equalTo(check4Btn.snp.right).offset(24)
+            make.right.equalToSuperview().inset(24)
+        }
+        
+        btns = [check1Btn, check2Btn, check3Btn, check4Btn]
+        optionLbls = [option1Lbl, option2Lbl, option3Lbl, option4Lbl]
     }
     
     func configure(with data: ExerciseData) {
@@ -138,6 +158,7 @@ class SingleCell: UICollectionViewCell {
         option1Lbl.text = data.option1
         option2Lbl.text = data.option2
         option3Lbl.text = data.option3
+        option4Lbl.text = data.option4
         
         // bind.
         data.selection.asObservable().bind { [weak self] values in

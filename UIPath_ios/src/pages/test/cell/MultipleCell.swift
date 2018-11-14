@@ -17,9 +17,11 @@ class MultipleCell: UICollectionViewCell {
     lazy var check1Btn = UIButton()
     lazy var check2Btn = UIButton()
     lazy var check3Btn = UIButton()
+    lazy var check4Btn = UIButton()
     lazy var option1Lbl = UILabel()
     lazy var option2Lbl = UILabel()
     lazy var option3Lbl = UILabel()
+    lazy var option4Lbl = UILabel()
     
     var disposeBag = DisposeBag()
     
@@ -36,6 +38,7 @@ class MultipleCell: UICollectionViewCell {
         option1Lbl.text = nil
         option2Lbl.text = nil
         option3Lbl.text = nil
+        option4Lbl.text = nil
         disposeBag = DisposeBag()
     }
     
@@ -86,6 +89,15 @@ class MultipleCell: UICollectionViewCell {
         option3Lbl.numberOfLines = 0
         self.contentView.addSubview(option3Lbl)
         
+        check4Btn.setImage(uncheckIcon, for: .normal)
+        self.contentView.addSubview(check4Btn)
+        
+        option4Lbl.textColor = UIColor.black
+        option4Lbl.font = UIFont.systemFont(ofSize: 16)
+        option4Lbl.textAlignment = .left
+        option4Lbl.numberOfLines = 0
+        self.contentView.addSubview(option4Lbl)
+        
         questionLbl.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(44)
             make.left.right.equalToSuperview().inset(24)
@@ -127,8 +139,8 @@ class MultipleCell: UICollectionViewCell {
             make.right.equalToSuperview().inset(24)
         }
         
-        btns = [check1Btn, check2Btn, check3Btn]
-        optionLbls = [option1Lbl, option2Lbl, option3Lbl]
+        btns = [check1Btn, check2Btn, check3Btn, check4Btn]
+        optionLbls = [option1Lbl, option2Lbl, option3Lbl, option4Lbl]
     }
     
     func configure(with data: ExerciseData) {
@@ -136,6 +148,7 @@ class MultipleCell: UICollectionViewCell {
         option1Lbl.text = data.option1
         option2Lbl.text = data.option2
         option3Lbl.text = data.option3
+        option4Lbl.text = data.option4
         
         // bind.
         data.selection.asObservable().bind { [weak self] values in

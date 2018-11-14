@@ -48,9 +48,9 @@ class SingleSelectionCell: SingleCell {
         answerLbl.font = UIFont.systemFont(ofSize: 16)
         answerLbl.isHidden = true
         self.contentView.addSubview(answerLbl)
-
+        
         resultIconView.snp.makeConstraints { make in
-            make.top.equalTo(option3Lbl.snp.bottom).offset(24)
+            make.top.equalTo(option4Lbl.snp.bottom).offset(24)
             make.centerX.equalToSuperview()
             make.height.width.equalTo(44)
         }

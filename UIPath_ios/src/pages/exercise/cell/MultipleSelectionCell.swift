@@ -56,7 +56,7 @@ class MultipleSelectionCell: MultipleCell {
         self.contentView.addSubview(answerLbl)
         
         resultBtn.snp.makeConstraints { make in
-            make.top.equalTo(option3Lbl.snp.bottom).offset(24)
+            make.top.equalTo(option4Lbl.snp.bottom).offset(24)
             make.left.right.equalToSuperview().inset(24)
             make.height.equalTo(50)
         }
@@ -89,11 +89,7 @@ class MultipleSelectionCell: MultipleCell {
             self?.resultIconView.isHidden = false
             
             // 結果を表示する.
-            let values = data.selection.value
-            let valueArray = values.map{"\($0)"}
-            
-            let result = valueArray.joined(separator: ",")
-            
+            let result = data.selection.value.sorted(by: <).map{"\($0)"}.joined(separator: ",")
             if result == data.answer {
                 // 回答正确.
                 self?.answerLbl.isHidden = true
