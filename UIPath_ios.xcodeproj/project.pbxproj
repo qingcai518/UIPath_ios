@@ -48,6 +48,7 @@
 		4B523E7B219AC1F100E6B1BD /* RotateInOutAttributesAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B523E74219AC1F100E6B1BD /* RotateInOutAttributesAnimator.swift */; };
 		4B523E7C219AC1F100E6B1BD /* SnapInAttributesAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B523E75219AC1F100E6B1BD /* SnapInAttributesAnimator.swift */; };
 		4B523E7E219AC2A000E6B1BD /* TestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B523E7D219AC2A000E6B1BD /* TestViewModel.swift */; };
+		4B523E84219BA80400E6B1BD /* TesttopController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B523E83219BA80400E6B1BD /* TesttopController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +116,7 @@
 		4B523E74219AC1F100E6B1BD /* RotateInOutAttributesAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotateInOutAttributesAnimator.swift; sourceTree = "<group>"; };
 		4B523E75219AC1F100E6B1BD /* SnapInAttributesAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapInAttributesAnimator.swift; sourceTree = "<group>"; };
 		4B523E7D219AC2A000E6B1BD /* TestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewModel.swift; sourceTree = "<group>"; };
+		4B523E83219BA80400E6B1BD /* TesttopController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TesttopController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +261,7 @@
 		4B523E3921994AFD00E6B1BD /* pages */ = {
 			isa = PBXGroup;
 			children = (
+				4B523E82219BA7EE00E6B1BD /* testtop */,
 				4B523E6B219AC09C00E6B1BD /* test */,
 				4B523E4D21997ED700E6B1BD /* exercise */,
 				4B523E2321991D9A00E6B1BD /* top */,
@@ -369,6 +372,14 @@
 				4B523E7D219AC2A000E6B1BD /* TestViewModel.swift */,
 			);
 			path = test;
+			sourceTree = "<group>";
+		};
+		4B523E82219BA7EE00E6B1BD /* testtop */ = {
+			isa = PBXGroup;
+			children = (
+				4B523E83219BA80400E6B1BD /* TesttopController.swift */,
+			);
+			path = testtop;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -541,6 +552,7 @@
 				4B523E6D219AC0BA00E6B1BD /* TestController.swift in Sources */,
 				4B523DF621991BC800E6B1BD /* TopViewController.swift in Sources */,
 				4B523E76219AC1F100E6B1BD /* LinearCardAttributesAnimator.swift in Sources */,
+				4B523E84219BA80400E6B1BD /* TesttopController.swift in Sources */,
 				4B523E7E219AC2A000E6B1BD /* TestViewModel.swift in Sources */,
 				4B523E442199676400E6B1BD /* AppConst.swift in Sources */,
 				4B523E79219AC1F100E6B1BD /* CrossFadeAttributesAnimator.swift in Sources */,

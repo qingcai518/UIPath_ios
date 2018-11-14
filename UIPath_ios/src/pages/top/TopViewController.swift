@@ -67,7 +67,7 @@ extension TopViewController: UITableViewDelegate {
             next.chapter = data
             self.navigationController?.pushViewController(next, animated: true)
         } else {
-            let next = TestController()
+            let next = TesttopController()
             self.navigationController?.pushViewController(next, animated: true)
         }
     }
