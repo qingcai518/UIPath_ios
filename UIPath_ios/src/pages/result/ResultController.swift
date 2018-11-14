@@ -33,6 +33,10 @@ class ResultController: ViewController {
         let itemBtn = UIBarButtonItem(customView: closeBtn)
         self.navigationItem.rightBarButtonItem = itemBtn
         
+        closeBtn.rx.tap.bind { [weak self] in
+            self?.dismiss(animated: true, completion: nil)
+        }.disposed(by: disposeBag)
+        
         tableView.backgroundColor = UIColor.clear
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
