@@ -12,6 +12,7 @@ import RxSwift
 
 class ResultViewModel {
     var result = Variable<String>("-")
+    var resultColor = Variable(UIColor.black)
     func getScore(tests: [ExerciseData]) {
         var count = 0
         for test in tests {
@@ -25,6 +26,7 @@ class ResultViewModel {
         // get result.
         let ratio = Double(count) / Double(tests.count)
         let content = ratio >= 0.7 ? "合格🥗" : "不合格👎"
+        resultColor.value = ratio >= 0.7 ? UIColor.green : UIColor.red
         self.result.value = content + " (\(count)正解 / \(tests.count)問中)"
     }
 }

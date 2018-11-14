@@ -21,7 +21,7 @@ class ResultController: ViewController {
         super.viewDidLoad()
         
         setSubviews()
-        getData()
+        bindAndGetData()
     }
     
     private func setSubviews() {
@@ -61,6 +61,7 @@ class ResultController: ViewController {
         headerView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: 120)
         resultLbl.font = UIFont.boldSystemFont(ofSize: 24)
         resultLbl.numberOfLines = 1
+        resultLbl.textAlignment = .center
         headerView.addSubview(resultLbl)
         self.view.addSubview(headerView)
         tableView.tableHeaderView = headerView
@@ -70,8 +71,11 @@ class ResultController: ViewController {
         }
     }
     
-    private func getData() {
+    private func bindAndGetData() {
         viewModel.result.asObservable().bind(to: resultLbl.rx.text).disposed(by: disposeBag)
+        viewModel.resultColor.asObservable().bind { [weak self] color in
+            self?.resultLbl.textColor = color
+        }.disposed(by: disposeBag)
         viewModel.getScore(tests: tests)
     }
 }
