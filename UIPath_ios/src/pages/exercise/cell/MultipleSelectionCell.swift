@@ -71,6 +71,16 @@ class MultipleSelectionCell: MultipleCell {
             make.top.equalTo(resultIconView.snp.bottom).offset(24)
             make.left.right.equalToSuperview().inset(24)
         }
+        
+        // add content size.
+        let contentLbl = UILabel()
+        contentLbl.textColor = UIColor.black
+        contentLbl.font = UIFont.systemFont(ofSize: 16)
+        contentLbl.textAlignment = .left
+        contentLbl.text = "回答を見る"
+        self.contentView.addSubview(contentLbl)
+        
+        
     }
     
     override func configure(with data: ExerciseData) {
