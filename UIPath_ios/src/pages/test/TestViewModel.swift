@@ -15,9 +15,14 @@ class TestViewModel {
     var tests = [ExerciseData]()
     
     func getTest(onSuccess: @escaping () -> Void, onFail: @escaping (String) -> Void) {
-        guard let api = URLComponents(string: testAPI) else {
+        guard var api = URLComponents(string: testAPI) else {
             return onFail("Invalid API.")
         }
+        api.queryItems = [
+            URLQueryItem(name: "limit", value: "\(testCount)")
+        ]
+        
+        print(try! api.asURL().absoluteURL)
         
         Alamofire.request(api, method: .get).response { response in
             if let error = response.error {
@@ -35,7 +40,6 @@ class TestViewModel {
     }
     
     func getScore() {
-        var score = 30
         for test in tests {
             let selection = test.selection.value
             

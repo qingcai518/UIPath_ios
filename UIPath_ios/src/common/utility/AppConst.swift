@@ -38,3 +38,5 @@ var safeArea : UIEdgeInsets = {
     
     return defaultInsets
 }()
+
+let testCount = 30   // 考试题个数.
