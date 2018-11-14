@@ -64,7 +64,7 @@ class TestController: ViewController {
         
         // set collectionView.
         let layout = AnimatedCollectionViewLayout()
-        layout.animator = LinearCardAttributesAnimator()
+        layout.animator = RotateInOutAttributesAnimator()
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
@@ -84,7 +84,7 @@ class TestController: ViewController {
         }.disposed(by: disposeBag)
         
         scoreBtn.rx.tap.bind { [weak self] in
-            print("begin to get score for test.")
+            let 
         }.disposed(by: disposeBag)
     }
 }
