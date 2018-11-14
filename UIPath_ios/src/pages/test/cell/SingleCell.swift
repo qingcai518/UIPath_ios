@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 
 class SingleCell: UICollectionViewCell {
-    static let id = "SingleSelectionCell"
+    static let id = "SingleCell"
     lazy var questionLbl = UILabel()
     lazy var check1Btn = UIButton()
     lazy var check2Btn = UIButton()

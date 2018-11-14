@@ -13,7 +13,7 @@ import RxSwift
 import RxCocoa
 
 class MultipleCell: UICollectionViewCell {
-    static let id = "MultipleSelectionCell"
+    static let id = "MultipleCell"
     lazy var questionLbl = UILabel()
     lazy var check1Btn = UIButton()
     lazy var check2Btn = UIButton()
