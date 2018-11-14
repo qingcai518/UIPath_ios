@@ -34,6 +34,10 @@ class ResultCell: UITableViewCell {
     }
     
     private func setSubviews() {
+        
+    }
+    
+    private func setSubviews() {
         questionMark.contentMode = .scaleAspectFit
         questionMark.clipsToBounds = true
         questionMark.image = questionIcon
@@ -107,8 +111,10 @@ class ResultCell: UITableViewCell {
         let answer = data.answer
         if selection == answer {
             resultMark.image = correctIcon
+            resultLbl.textColor = UIColor.green
         } else {
             resultMark.image = wrongIcon
+            resultLbl.textColor = UIColor.red
         }
         
         // 设置用户选择的答案.
@@ -133,5 +139,6 @@ class ResultCell: UITableViewCell {
         
         // 设置问题.
         self.questionLbl.text = data.question
+        
     }
 }
