@@ -11,10 +11,12 @@ import RxSwift
 import RxCocoa
 
 class SingleSelectionCell: SingleCell {
-    static let subId = "SingleSelectionCell"
-    
     lazy var resultIconView = UIImageView()
     lazy var answerLbl = UILabel()
+    
+    override class var id : String {
+        return "SingleSelectionCell"
+    }
     
     override func prepareForReuse() {
         super.prepareForReuse()

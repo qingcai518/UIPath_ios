@@ -43,6 +43,10 @@ class ExerciseController: ViewController {
         collectionView.isPagingEnabled = true
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        let id = SingleSelectionCell.id
+        print("Single ID ===== \(id)")
+        
         collectionView.register(SingleSelectionCell.self, forCellWithReuseIdentifier: SingleSelectionCell.id)
         collectionView.register(MultipleSelectionCell.self, forCellWithReuseIdentifier: MultipleSelectionCell.id)
         self.view.addSubview(collectionView)

@@ -11,7 +11,6 @@ import RxSwift
 import RxCocoa
 
 class SingleCell: UICollectionViewCell {
-    static let id = "SingleCell"
     lazy var questionLbl = UILabel()
     lazy var check1Btn = UIButton()
     lazy var check2Btn = UIButton()
@@ -24,6 +23,13 @@ class SingleCell: UICollectionViewCell {
     var optionLbls = [UILabel]()
     
     var disposeBag = DisposeBag()
+    
+    class var id : String {
+        return "SingleCell"
+    }
+//    class func getId() -> String {
+//        return "SingleCell"
+//    }
     
     override func prepareForReuse() {
         super.prepareForReuse()
