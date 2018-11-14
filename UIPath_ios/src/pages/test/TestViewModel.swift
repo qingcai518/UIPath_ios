@@ -14,20 +14,23 @@ import UIKit
 class TestViewModel {
     var tests = [ExerciseData]()
     
-    func getTest(onSucces: @escaping () -> Void, onFail: @escaping (String) -> Void) {
-        guard let api = URLComponents(string: testAPI) else {return onFail("Invalid api.")}
-        Alamofire.request(api, method: .get).responseJSON { response in
+    func getTest(onSuccess: @escaping () -> Void, onFail: @escaping (String) -> Void) {
+        guard let api = URLComponents(string: testAPI) else {
+            return onFail("Invalid API.")
+        }
+        
+        Alamofire.request(api, method: .get).response { response in
             if let error = response.error {
                 return onFail(error.localizedDescription)
             }
             
             guard let data = response.data else {
-                return onFail("have no response data.")
+                return onFail("Fail to get data.")
             }
             
             let json = JSON(data)
             self.tests = json.arrayValue.map{ExerciseData($0)}
-            return onSucces()
+            return onSuccess()
         }
     }
 }

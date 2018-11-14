@@ -36,6 +36,21 @@ class TesttopController: ViewController {
         confirmBtn.setTitleColor(UIColor.white, for: .normal)
         self.view.addSubview(confirmBtn)
         
+        confirmBtn.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.left.right.equalToSuperview().inset(24)
+            make.height.equalTo(50)
+        }
         
+        titleLbl.snp.makeConstraints { make in
+            make.bottom.equalTo(confirmBtn.snp.top).offset(-44)
+            make.left.right.equalToSuperview().inset(24)
+        }
+        
+        confirmBtn.rx.tap.bind { [weak self] in
+            let test = TestController()
+            let next = UINavigationController(rootViewController: test)
+            self?.present(next, animated: true, completion: nil)
+        }.disposed(by: disposeBag)
     }
 }

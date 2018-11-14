@@ -20,10 +20,16 @@ class TestController: ViewController {
         getData()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        SVProgressHUD.dismiss()
+    }
+    
     private func getData() {
         SVProgressHUD.show()
-        viewModel.getTest(onSucces: {
-            SVProgressHUD.show()
+        viewModel.getTest(onSuccess: { [weak self] in
+            SVProgressHUD.dismiss()
+            self?.collectionView.reloadData()
         }) { msg in
             SVProgressHUD.dismiss()
             SVProgressHUD.showError(withStatus: msg)
@@ -33,6 +39,24 @@ class TestController: ViewController {
     private func setSubviews() {
         self.view.backgroundColor = UIColor.white
         self.title = "最終テスト"
+        
+        // 閉じるボタン.
+        let closeBtn = UIButton()
+        closeBtn.setTitle("閉じる", for: .normal)
+        closeBtn.setTitleColor(UIColor.black, for: .normal)
+        closeBtn.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        closeBtn.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+        let closeItem = UIBarButtonItem(customView: closeBtn)
+        self.navigationItem.leftBarButtonItem = closeItem
+        
+        // 评分按钮.
+        let scoreBtn = UIButton()
+        scoreBtn.setTitleColor(UIColor.orange, for: .normal)
+        scoreBtn.setTitle("採点", for: .normal)
+        scoreBtn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        scoreBtn.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+        let scoreItem = UIBarButtonItem(customView: scoreBtn)
+        self.navigationItem.rightBarButtonItem = scoreItem
         
         let originY = statusbarHeight + naviHeight(self.navigationController)
         let height = screenHeight - originY - tabHeight(self.tabBarController)
@@ -48,11 +72,20 @@ class TestController: ViewController {
         
         collectionView = UICollectionView(frame: frame, collectionViewLayout: layout)
         collectionView.backgroundColor = UIColor.clear
+        collectionView.isPagingEnabled = true
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(MultipleSelectionCell.self, forCellWithReuseIdentifier: MultipleSelectionCell.id)
         collectionView.register(SingleSelectionCell.self, forCellWithReuseIdentifier: SingleSelectionCell.id)
         self.view.addSubview(collectionView)
+        
+        closeBtn.rx.tap.bind { [weak self] in
+            self?.dismiss(animated: true, completion: nil)
+        }.disposed(by: disposeBag)
+        
+        scoreBtn.rx.tap.bind { [weak self] in
+            print("begin to get score for test.")
+        }.disposed(by: disposeBag)
     }
 }
 
