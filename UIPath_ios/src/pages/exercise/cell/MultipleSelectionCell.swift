@@ -71,9 +71,6 @@ class MultipleSelectionCell: MultipleCell {
             make.top.equalTo(resultIconView.snp.bottom).offset(24)
             make.left.right.equalToSuperview().inset(24)
         }
-        
-        btns = [check1Btn, check2Btn, check3Btn]
-        optionLbls = [option1Lbl, option2Lbl, option3Lbl]
     }
     
     override func configure(with data: ExerciseData) {

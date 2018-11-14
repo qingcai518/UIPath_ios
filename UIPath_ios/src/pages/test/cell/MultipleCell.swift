@@ -139,6 +139,18 @@ class MultipleCell: UICollectionViewCell {
             make.right.equalToSuperview().inset(24)
         }
         
+        check4Btn.snp.makeConstraints { make in
+            make.top.equalTo(option3Lbl.snp.bottom).offset(24)
+            make.left.equalToSuperview().inset(24)
+            make.height.width.equalTo(24)
+        }
+        
+        option4Lbl.snp.makeConstraints { make in
+            make.top.equalTo(option3Lbl.snp.bottom).offset(24)
+            make.left.equalTo(check4Btn.snp.right).offset(24)
+            make.right.equalToSuperview().inset(24)
+        }
+        
         btns = [check1Btn, check2Btn, check3Btn, check4Btn]
         optionLbls = [option1Lbl, option2Lbl, option3Lbl, option4Lbl]
     }
