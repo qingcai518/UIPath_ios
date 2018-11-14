@@ -16,3 +16,5 @@ let uncheckIcon = UIImage(named: "uncheck")!
 
 let correctIcon = UIImage(named: "correct")!
 let wrongIcon = UIImage(named: "wrong")!
+let questionIcon = UIImage(named: "question")!
+let answerIcon = UIImage(named: "answer")!

@@ -10,6 +10,7 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 import UIKit
+import SVProgressHUD
 
 class TestViewModel {
     var tests = [ExerciseData]()
@@ -50,6 +51,9 @@ class TestViewModel {
         }
         
         // get result.
+        let ratio = Double(count) / Double(tests.count)
+        let result = ratio >= 0.7 ? "合格🥗" : "不合格👎"
         print("result = \(Double(count) / Double(tests.count))")
+        SVProgressHUD.showSuccess(withStatus: "結果：\n\(tests.count)問中、正解\(count)個\n\(result)")
     }
 }

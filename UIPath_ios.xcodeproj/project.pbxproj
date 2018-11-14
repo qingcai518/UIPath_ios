@@ -52,6 +52,7 @@
 		4B523E87219BEB2000E6B1BD /* SingleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B523E86219BEB2000E6B1BD /* SingleCell.swift */; };
 		4B523E89219BEBC000E6B1BD /* MultipleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B523E88219BEBC000E6B1BD /* MultipleCell.swift */; };
 		4B523E8E219BF4E300E6B1BD /* ResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B523E8D219BF4E300E6B1BD /* ResultController.swift */; };
+		4B523E91219C04F100E6B1BD /* ResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B523E90219C04F100E6B1BD /* ResultCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +124,7 @@
 		4B523E86219BEB2000E6B1BD /* SingleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCell.swift; sourceTree = "<group>"; };
 		4B523E88219BEBC000E6B1BD /* MultipleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleCell.swift; sourceTree = "<group>"; };
 		4B523E8D219BF4E300E6B1BD /* ResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultController.swift; sourceTree = "<group>"; };
+		4B523E90219C04F100E6B1BD /* ResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -402,9 +404,18 @@
 		4B523E8C219BF4C300E6B1BD /* result */ = {
 			isa = PBXGroup;
 			children = (
+				4B523E8F219C04DD00E6B1BD /* cell */,
 				4B523E8D219BF4E300E6B1BD /* ResultController.swift */,
 			);
 			path = result;
+			sourceTree = "<group>";
+		};
+		4B523E8F219C04DD00E6B1BD /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				4B523E90219C04F100E6B1BD /* ResultCell.swift */,
+			);
+			path = cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -588,6 +599,7 @@
 				4B523E5D2199838800E6B1BD /* AnimatedCollectionViewLayout.swift in Sources */,
 				4B523E77219AC1F100E6B1BD /* PageAttributesAnimator.swift in Sources */,
 				4B523E4C21996EE600E6B1BD /* TableViewCell.swift in Sources */,
+				4B523E91219C04F100E6B1BD /* ResultCell.swift in Sources */,
 				4B523DF421991BC800E6B1BD /* AppDelegate.swift in Sources */,
 				4B523E592199835200E6B1BD /* CubeAttributesAnimator.swift in Sources */,
 				4B523E60219983B400E6B1BD /* UIView.swift in Sources */,
