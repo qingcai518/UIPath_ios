@@ -9,6 +9,7 @@
 import UIKit
 
 class ResultCell: UITableViewCell {
+    static let id = "ResultCell"
     lazy var questionMark = UIImageView()
     lazy var answerMark = UIImageView()
     lazy var resultMark = UIImageView()
@@ -34,10 +35,6 @@ class ResultCell: UITableViewCell {
     }
     
     private func setSubviews() {
-        
-    }
-    
-    private func setSubviews() {
         questionMark.contentMode = .scaleAspectFit
         questionMark.clipsToBounds = true
         questionMark.image = questionIcon
@@ -54,7 +51,6 @@ class ResultCell: UITableViewCell {
         
         questionLbl.textColor = UIColor.black
         questionLbl.font = UIFont.systemFont(ofSize: 16)
-        questionLbl.backgroundColor = UIColor.orange
         questionLbl.numberOfLines = 0
         self.contentView.addSubview(questionLbl)
         
@@ -69,39 +65,38 @@ class ResultCell: UITableViewCell {
         questionMark.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(24)
             make.left.equalToSuperview().inset(24)
-            make.height.width.equalTo(40)
+            make.height.width.equalTo(24)
         }
         
         questionLbl.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(24)
-            make.left.equalTo(questionMark.snp.right).offset(24)
+            make.left.equalTo(questionMark.snp.right).offset(12)
             make.right.equalToSuperview().inset(24)
         }
         
         resultMark.snp.makeConstraints { make in
             make.top.equalTo(questionLbl.snp.bottom).offset(24)
-            make.left.equalToSuperview().inset(24 + 24 + 40)
-            make.right.equalToSuperview().inset(24)
-            make.height.width.equalTo(40)
+            make.left.equalToSuperview().inset(24)
+            make.height.width.equalTo(24)
         }
         
         resultLbl.snp.makeConstraints { make in
             make.top.equalTo(questionLbl.snp.bottom).offset(24)
-            make.left.equalTo(resultMark.snp.right).offset(24)
+            make.left.equalTo(resultMark.snp.right).offset(12)
             make.right.equalToSuperview().inset(24)
         }
         
         answerMark.snp.makeConstraints { make in
             make.top.equalTo(resultLbl.snp.bottom).offset(24)
-            make.left.equalToSuperview().inset(24 + 24 + 40)
-            make.right.equalToSuperview().inset(24)
-            make.height.width.equalTo(40)
+            make.left.equalToSuperview().inset(24)
+            make.height.width.equalTo(24)
         }
         
         answerLbl.snp.makeConstraints { make in
             make.top.equalTo(resultLbl.snp.bottom).offset(24)
-            make.left.equalTo(answerMark.snp.right).offset(24)
+            make.left.equalTo(answerMark.snp.right).offset(12)
             make.right.equalToSuperview().inset(24)
+            make.bottom.equalToSuperview().inset(24)
         }
     }
     

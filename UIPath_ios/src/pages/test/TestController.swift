@@ -86,7 +86,10 @@ class TestController: ViewController {
         scoreBtn.rx.tap.bind { [weak self] in
             let alertController = UIAlertController(title: nil, message: "採点しますか？", preferredStyle: .actionSheet)
             let action1 = UIAlertAction(title: "確認", style: .destructive, handler: { [weak self] action in
-                self?.viewModel.getScore()
+                guard let `self` = self else {return}
+                let next = ResultController()
+                next.tests = self.viewModel.tests
+                self.navigationController?.pushViewController(next, animated: true)
             })
             let action2 = UIAlertAction(title: "キャンセル　", style: .cancel, handler: nil)
             alertController.addAction(action1)
