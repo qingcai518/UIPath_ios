@@ -33,4 +33,12 @@ class TestViewModel {
             return onSuccess()
         }
     }
+    
+    func getScore() {
+        var score = 30
+        for test in tests {
+            let selection = test.selection.value
+            
+        }
+    }
 }

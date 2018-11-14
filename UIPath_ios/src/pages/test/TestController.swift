@@ -84,7 +84,14 @@ class TestController: ViewController {
         }.disposed(by: disposeBag)
         
         scoreBtn.rx.tap.bind { [weak self] in
-            let 
+            let alertController = UIAlertController(title: nil, message: "採点しますか？", preferredStyle: .actionSheet)
+            let action1 = UIAlertAction(title: "確認", style: .destructive, handler: { [weak self] action in
+                self?.viewModel.getScore()
+            })
+            let action2 = UIAlertAction(title: "キャンセル　", style: .cancel, handler: nil)
+            alertController.addAction(action1)
+            alertController.addAction(action2)
+            self?.present(alertController, animated: true, completion: nil)
         }.disposed(by: disposeBag)
     }
 }
