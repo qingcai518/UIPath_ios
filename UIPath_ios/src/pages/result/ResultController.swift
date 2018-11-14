@@ -25,7 +25,6 @@ class ResultController: ViewController {
         self.title = "採点結果"
         
         tableView.backgroundColor = UIColor.clear
-        tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
         tableView.register(ResultCell.self, forCellReuseIdentifier: ResultCell.id)
@@ -41,10 +40,6 @@ class ResultController: ViewController {
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
     }
-}
-
-extension ResultController: UITableViewDelegate {
-    
 }
 
 extension ResultController: UITableViewDataSource {
