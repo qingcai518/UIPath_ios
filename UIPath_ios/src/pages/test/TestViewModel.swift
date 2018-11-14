@@ -40,9 +40,16 @@ class TestViewModel {
     }
     
     func getScore() {
+        var count = 0
         for test in tests {
-            let selection = test.selection.value
-            
+            let selection = test.selection.value.sorted(by: < ).map{"\($0)"}.joined(separator: ",")
+            let answer = test.answer
+            if selection == answer {
+                count += 1
+            }
         }
+        
+        // get result.
+        print("result = \(Double(count) / Double(tests.count))")
     }
 }
