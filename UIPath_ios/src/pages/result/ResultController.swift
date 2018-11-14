@@ -24,6 +24,15 @@ class ResultController: ViewController {
         self.view.backgroundColor = UIColor.white
         self.title = "採点結果"
         
+        // add close button.
+        let closeBtn = UIButton()
+        closeBtn.setTitleColor(UIColor.black, for: .normal)
+        closeBtn.setTitle("終了", for: .normal)
+        closeBtn.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        closeBtn.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+        let itemBtn = UIBarButtonItem(customView: closeBtn)
+        self.navigationItem.rightBarButtonItem = itemBtn
+        
         tableView.backgroundColor = UIColor.clear
         tableView.dataSource = self
         tableView.tableFooterView = UIView()

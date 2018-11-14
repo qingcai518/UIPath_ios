@@ -60,6 +60,7 @@ class ResultCell: UITableViewCell {
         self.contentView.addSubview(answerLbl)
         
         resultLbl.font = UIFont.systemFont(ofSize: 16)
+        resultLbl.numberOfLines = 0
         self.contentView.addSubview(resultLbl)
         
         questionMark.snp.makeConstraints { make in
@@ -118,6 +119,9 @@ class ResultCell: UITableViewCell {
         for index in sorted {
             let option = options[index]
             result += "\(option)\n"
+        }
+        if result == "" {
+            result = "未選択"
         }
         resultLbl.text = result
         

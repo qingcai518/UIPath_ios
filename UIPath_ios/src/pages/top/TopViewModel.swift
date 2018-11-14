@@ -32,9 +32,6 @@ class TopViewModel {
             }
             
             let json = JSON(data)
-            
-            print(json)
-            
             self.chapters = json["data"].arrayValue.map{ChapterData($0)}
             return onSuccess()
         }
