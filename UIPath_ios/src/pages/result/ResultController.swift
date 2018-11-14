@@ -31,6 +31,8 @@ class ResultController: ViewController {
         tableView.register(ResultCell.self, forCellReuseIdentifier: ResultCell.id)
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.allowsSelection = false
+        
         self.view.addSubview(tableView)
         
         tableView.snp.makeConstraints { make in
