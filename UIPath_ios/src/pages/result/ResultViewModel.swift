@@ -8,8 +8,10 @@
 
 import Foundation
 import SVProgressHUD
+import RxSwift
 
 class ResultViewModel {
+    var result = Variable<String>("-")
     func getScore(tests: [ExerciseData]) {
         var count = 0
         for test in tests {
@@ -22,8 +24,7 @@ class ResultViewModel {
         
         // get result.
         let ratio = Double(count) / Double(tests.count)
-        let result = ratio >= 0.7 ? "合格🥗" : "不合格👎"
-        print("result = \(Double(count) / Double(tests.count))")
-        SVProgressHUD.showSuccess(withStatus: "結果：\n\(tests.count)問中、正解\(count)個\n\(result)")
+        let content = ratio >= 0.7 ? "合格🥗" : "不合格👎"
+        self.result.value = content + " (\(count)正解 / \(tests.count)問中)"
     }
 }

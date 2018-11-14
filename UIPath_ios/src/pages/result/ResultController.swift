@@ -10,6 +10,9 @@ import UIKit
 
 class ResultController: ViewController {
     lazy var tableView = UITableView()
+    lazy var headerView = UIView()
+    lazy var resultLbl = UILabel()
+    let viewModel = ResultViewModel()
     
     // param.
     var tests = [ExerciseData]()
@@ -18,6 +21,7 @@ class ResultController: ViewController {
         super.viewDidLoad()
         
         setSubviews()
+        getData()
     }
     
     private func setSubviews() {
@@ -36,7 +40,7 @@ class ResultController: ViewController {
         closeBtn.rx.tap.bind { [weak self] in
             self?.dismiss(animated: true, completion: nil)
         }.disposed(by: disposeBag)
-        
+
         tableView.backgroundColor = UIColor.clear
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
@@ -52,6 +56,23 @@ class ResultController: ViewController {
             make.left.right.equalToSuperview()
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
+        
+        //  header view.
+        headerView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: 120)
+        resultLbl.font = UIFont.boldSystemFont(ofSize: 24)
+        resultLbl.numberOfLines = 1
+        headerView.addSubview(resultLbl)
+        self.view.addSubview(headerView)
+        tableView.tableHeaderView = headerView
+        resultLbl.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.left.right.equalToSuperview().inset(24)
+        }
+    }
+    
+    private func getData() {
+        viewModel.result.asObservable().bind(to: resultLbl.rx.text).disposed(by: disposeBag)
+        viewModel.getScore(tests: tests)
     }
 }
 
