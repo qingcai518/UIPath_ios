@@ -94,6 +94,7 @@ class SingleCell: UICollectionViewCell {
         option4Lbl.textColor = UIColor.black
         option4Lbl.textAlignment = .left
         option4Lbl.font = UIFont.systemFont(ofSize: 16)
+        option4Lbl.numberOfLines = 0
         self.contentView.addSubview(option4Lbl)
         
         questionLbl.snp.makeConstraints { make in
