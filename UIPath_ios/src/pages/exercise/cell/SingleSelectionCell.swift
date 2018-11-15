@@ -20,11 +20,8 @@ class SingleSelectionCell: SingleCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        
         resultIconView.image = nil
         answerLbl.text = nil
-        
-        disposeBag = DisposeBag()
     }
     
     override init(frame: CGRect) {
