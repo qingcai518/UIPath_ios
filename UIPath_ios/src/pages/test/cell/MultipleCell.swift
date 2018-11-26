@@ -162,6 +162,15 @@ class MultipleCell: UICollectionViewCell {
         option3Lbl.text = data.option3
         option4Lbl.text = data.option4
         
+        check1Btn.isHidden = data.option1 == ""
+        option1Lbl.isHidden = data.option1 == ""
+        check2Btn.isHidden = data.option2 == ""
+        option2Lbl.isHidden = data.option2 == ""
+        check3Btn.isHidden = data.option3 == ""
+        option3Lbl.isHidden = data.option3 == ""
+        check4Btn.isHidden = data.option4 == ""
+        option4Lbl.isHidden = data.option4 == ""
+        
         // bind.
         data.selection.asObservable().bind { [weak self] values in
             guard let `self` = self else {return}
