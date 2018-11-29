@@ -449,6 +449,7 @@
 				4B523DED21991BC800E6B1BD /* Frameworks */,
 				4B523DEE21991BC800E6B1BD /* Resources */,
 				4B523E3821991E0E00E6B1BD /* ShellScript */,
+				4BBB4DA921AFC0B400C14512 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -603,6 +604,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
+		};
+		4BBB4DA921AFC0B400C14512 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/Fabric/run\" 332d53205f382ac82bcb2dc7cd5106bf81d40a68 77046124abd8fcaa7e143557b2e5b6259cff38cc731b5845dda68b2e79f361a8\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
