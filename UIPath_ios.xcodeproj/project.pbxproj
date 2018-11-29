@@ -54,6 +54,7 @@
 		4B523E8E219BF4E300E6B1BD /* ResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B523E8D219BF4E300E6B1BD /* ResultController.swift */; };
 		4B523E91219C04F100E6B1BD /* ResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B523E90219C04F100E6B1BD /* ResultCell.swift */; };
 		4B523E93219C10E200E6B1BD /* ResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B523E92219C10E200E6B1BD /* ResultViewModel.swift */; };
+		8364E06B6347E1D4A17D33E6 /* Pods_UIPath_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA2EAAC77C5870AB341B255D /* Pods_UIPath_ios.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		266684F0141740DCBBC4E8B6 /* Pods-UIPath_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIPath_ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-UIPath_ios/Pods-UIPath_ios.release.xcconfig"; sourceTree = "<group>"; };
 		4B523DF021991BC800E6B1BD /* UIPath_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIPath_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B523DF321991BC800E6B1BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4B523DF521991BC800E6B1BD /* TopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewController.swift; sourceTree = "<group>"; };
@@ -127,6 +129,8 @@
 		4B523E8D219BF4E300E6B1BD /* ResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultController.swift; sourceTree = "<group>"; };
 		4B523E90219C04F100E6B1BD /* ResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCell.swift; sourceTree = "<group>"; };
 		4B523E92219C10E200E6B1BD /* ResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewModel.swift; sourceTree = "<group>"; };
+		DA2EAAC77C5870AB341B255D /* Pods_UIPath_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UIPath_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0936EEE10DC6136765FCD37 /* Pods-UIPath_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIPath_ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UIPath_ios/Pods-UIPath_ios.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +146,7 @@
 				4B523E3521991DDB00E6B1BD /* RxSwift.framework in Frameworks */,
 				4B523E3621991DDB00E6B1BD /* SnapKit.framework in Frameworks */,
 				4B523E3721991DDB00E6B1BD /* RxCocoa.framework in Frameworks */,
+				8364E06B6347E1D4A17D33E6 /* Pods_UIPath_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,6 +175,7 @@
 				4B523E1221991BCA00E6B1BD /* UIPath_iosUITests */,
 				4B523DF121991BC800E6B1BD /* Products */,
 				4B523E2721991DDB00E6B1BD /* Frameworks */,
+				8D3DECF544B765E69AF5A0FE /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -264,6 +270,7 @@
 				4B523E2E21991DDB00E6B1BD /* SnapKit.framework */,
 				4B523E2A21991DDB00E6B1BD /* SVProgressHUD.framework */,
 				4B523E2821991DDB00E6B1BD /* SwiftyJSON.framework */,
+				DA2EAAC77C5870AB341B255D /* Pods_UIPath_ios.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -421,6 +428,15 @@
 			path = cell;
 			sourceTree = "<group>";
 		};
+		8D3DECF544B765E69AF5A0FE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F0936EEE10DC6136765FCD37 /* Pods-UIPath_ios.debug.xcconfig */,
+				266684F0141740DCBBC4E8B6 /* Pods-UIPath_ios.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -428,6 +444,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4B523E1821991BCA00E6B1BD /* Build configuration list for PBXNativeTarget "UIPath_ios" */;
 			buildPhases = (
+				124EA8B330A18F841B90E4C9 /* [CP] Check Pods Manifest.lock */,
 				4B523DEC21991BC800E6B1BD /* Sources */,
 				4B523DED21991BC800E6B1BD /* Frameworks */,
 				4B523DEE21991BC800E6B1BD /* Resources */,
@@ -548,12 +565,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4B523E3821991E0E00E6B1BD /* ShellScript */ = {
+		124EA8B330A18F841B90E4C9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UIPath_ios-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4B523E3821991E0E00E6B1BD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/SVProgressHUD.framework",
@@ -564,8 +597,6 @@
 				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ESPullToRefresh.framework",
-			);
-			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
@@ -779,6 +810,7 @@
 		};
 		4B523E1921991BCA00E6B1BD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F0936EEE10DC6136765FCD37 /* Pods-UIPath_ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -802,6 +834,7 @@
 		};
 		4B523E1A21991BCA00E6B1BD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 266684F0141740DCBBC4E8B6 /* Pods-UIPath_ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
