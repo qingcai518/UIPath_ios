@@ -8,7 +8,8 @@
 
 import Foundation
 
-let domain = "http://52.197.86.134:8083"
+//let domain = "http://52.197.86.134:8083"
+let domain = "http://52.69.63.4:8083"
 let v1 = domain + "/v1"
 
 let chapterAPI = v1 + "/chapter/"
